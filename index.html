@@ -5,96 +5,122 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>I'm Sorry, Sis 💔</title>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      overflow: hidden;
       font-family: 'Open Sans', sans-serif;
       background: linear-gradient(to right, #fceabb, #f8b500);
       color: #333;
-      text-align: center;
     }
 
-    header {
-      padding: 60px 20px;
-      background: url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70') center/cover no-repeat;
-      color: white;
+    ::-webkit-scrollbar {
+      display: none;
     }
 
-    header h1 {
-      font-family: 'Pacifico', cursive;
-      font-size: 3em;
-      margin-bottom: 10px;
+    .scroll-container {
+      overflow: hidden;
     }
 
-    header p {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin: auto;
+    .main {
+      padding: 0;
     }
 
     section {
-      padding: 40px 20px;
+      min-height: 100vh;
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
-    .card {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      max-width: 600px;
-      margin: 20px auto;
-      padding: 30px;
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 12px;
-    }
-
-    .card h2 {
+    h1, h2 {
       font-family: 'Pacifico', cursive;
       color: #f8b500;
+      margin-bottom: 20px;
     }
 
-    .card p {
-      font-size: 1.1em;
+    p {
+      font-size: 1.2em;
+      max-width: 600px;
+      text-align: center;
       line-height: 1.6;
     }
 
+    .image-block {
+      width: 80%;
+      max-width: 700px;
+      margin: 40px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .image-block img {
+      width: 100%;
+      display: block;
+    }
+
     footer {
-      padding: 20px;
+      padding: 40px 20px;
       font-size: 0.9em;
+      text-align: center;
       color: #555;
     }
   </style>
 </head>
 <body>
+  <div class="scroll-container" data-scroll-container>
+    <div class="main" data-scroll-section>
 
-  <header>
-    <h1>I'm Really Sorry 😔</h1>
-    <p>Dear Sister, I messed up. I said things I didn’t mean, and I regret every word. This is my way of saying I care deeply and I want to make it right.</p>
-  </header>
+      <section data-scroll>
+        <h1 data-scroll-speed="2">I'm Really Sorry 😔</h1>
+        <p data-scroll-speed="1">
+          Dear Sister, I said things I didn’t mean, and I regret every word. This is my way of saying I care deeply and I want to make it right.
+        </p>
+        <div class="image-block" data-scroll-speed="1.5">
+          <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70" alt="Sibling moment">
+        </div>
+      </section>
 
-  <section>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde" alt="Cute sibling moment">
-      <h2>Our Bond Means Everything</h2>
-      <p>
-        You’ve always been my biggest supporter, my partner in crime, and the one who understands me like no one else. I let my emotions get the better of me, and I hurt you. I’m truly sorry.
-      </p>
+      <section data-scroll>
+        <h2 data-scroll-speed="2">Our Bond Means Everything</h2>
+        <p data-scroll-speed="1">
+          You’ve always been my biggest supporter, my partner in crime, and the one who understands me like no one else. I let my emotions get the better of me, and I hurt you. I’m truly sorry.
+        </p>
+        <div class="image-block" data-scroll-speed="1.5">
+          <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde" alt="Apology flowers">
+        </div>
+      </section>
+
+      <section data-scroll>
+        <h2 data-scroll-speed="2">Let’s Start Fresh 🌼</h2>
+        <p data-scroll-speed="1">
+          I promise to be more thoughtful, more kind, and more present. You deserve love, respect, and joy—and I want to be someone who brings that into your life.
+        </p>
+        <div class="image-block" data-scroll-speed="1.5">
+          <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64" alt="Fresh start">
+        </div>
+      </section>
+
+      <footer data-scroll>
+        Made with love by Sameer 💙 | Let’s talk soon?
+      </footer>
+
     </div>
+  </div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64" alt="Apology flowers">
-      <h2>Let’s Start Fresh 🌼</h2>
-      <p>
-        I promise to be more thoughtful, more kind, and more present. You deserve love, respect, and joy—and I want to be someone who brings that into your life.
-      </p>
-    </div>
-  </section>
-
-  <footer>
-    Made with love by Sameer 💙 | Let’s talk soon?
-  </footer>
-
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+  <script>
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector('[data-scroll-container]'),
+      smooth: true,
+      multiplier: 1.2,
+      class: 'is-reveal'
+    });
+  </script>
 </body>
 </html>
